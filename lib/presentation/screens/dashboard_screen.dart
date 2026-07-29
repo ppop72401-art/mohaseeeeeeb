@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:intl/intl.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 
+// المسارات الصحيحة للويدجت والـ Provider
 import '../../logic/providers/analytics_provider.dart';
 import '../widgets/smart_kpi_card.dart';
 import '../widgets/financial_chart.dart';
@@ -18,7 +19,6 @@ class DashboardScreen extends StatelessWidget {
     return Scaffold(
       body: Row(
         children: [
-          // شريط جانبي صغير وذكي
           NavigationRail(
             backgroundColor: Theme.of(context).colorScheme.surface,
             selectedIndex: 0,
@@ -44,7 +44,6 @@ class DashboardScreen extends StatelessWidget {
                       Text('مركز التحليلات المتقدم', style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontWeight: FontWeight.bold)),
                       const SizedBox(height: 32),
                       
-                      // 1. مؤشرات الأداء (KPIs)
                       Row(
                         children: [
                           Expanded(child: SmartKpiCard(
@@ -58,7 +57,7 @@ class DashboardScreen extends StatelessWidget {
                           Expanded(child: SmartKpiCard(
                             title: 'إجمالي المدفوعات',
                             amount: formatCurrency.format(analytics.totalPayments),
-                            percentage: 12.5, // قيمة افتراضية للنمو
+                            percentage: 12.5, 
                             icon: FluentIcons.wallet_24_filled,
                             color: Colors.greenAccent,
                           )),
@@ -66,18 +65,15 @@ class DashboardScreen extends StatelessWidget {
                       ),
                       const SizedBox(height: 32),
                       
-                      // 2. الرسوم البيانية والذكاء الاصطناعي
                       Expanded(
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            // المخطط البياني
                             Expanded(
                               flex: 2,
                               child: FinancialChart(data: analytics.monthlyExpenses),
                             ),
                             const SizedBox(width: 16),
-                            // لوحة التحليلات الذكية النصية
                             Expanded(
                               flex: 1,
                               child: SmartInsightsList(insights: analytics.smartInsights),
@@ -96,4 +92,3 @@ class DashboardScreen extends StatelessWidget {
     );
   }
 }
-
