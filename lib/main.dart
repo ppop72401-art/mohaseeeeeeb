@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:sqflite_common_ffi/sqflite_common_ffi.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+// المسارات الصحيحة الجديدة
 import 'logic/providers/analytics_provider.dart';
 import 'presentation/screens/dashboard_screen.dart';
 
@@ -32,7 +33,7 @@ class MassiveAccountingApp extends StatelessWidget {
     return MaterialApp(
       title: 'Massive ERP',
       debugShowCheckedModeBanner: false,
-      themeMode: ThemeMode.dark, // وضع ليلي افتراضي لفخامة التطبيق
+      themeMode: ThemeMode.dark, 
       darkTheme: ThemeData(
         brightness: Brightness.dark,
         scaffoldBackgroundColor: const Color(0xFF1E1E2C),
